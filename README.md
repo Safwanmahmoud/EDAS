@@ -14,7 +14,7 @@
 
 ### Example Results
 #### Before and After EDAS Processing
-![Graph Placeholder](path/to/example_graph.png)
+![[Graph Placeholder](path/to/example_graph.png)](https://github.com/Safwanmahmoud/EDAS/blob/main/EDAS%20Vs%20Conv.jpg)
 
 #### EDAS in Action
 ![GIF Placeholder](path/to/example_visualization.gif)
