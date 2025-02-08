@@ -10,7 +10,7 @@
 
 ## Visualization
 ### Overview of EDAS Algorithm
-![Algorithm Flowchart](path/to/flowchart.png)
+![[Algorithm Flowchart](path/to/flowchart.png)](https://github.com/Safwanmahmoud/EDAS/blob/main/Figure2_20.jpeg)
 
 ### Example Results
 #### Before and After EDAS Processing
