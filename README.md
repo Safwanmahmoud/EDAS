@@ -3,8 +3,11 @@
 **EDAS** is an adaptive smoothing algorithm designed to separate transient and oscillatory components in neural signals. By dynamically adjusting the sampling rate based on Euclidean distance thresholds, EDAS captures sharp transitions while minimizing spectral leakage, outperforming conventional methods.
 
 ## Visualization
-#### Before and After EDAS Processing
+#### With and without EDAS
 ![[Graph Placeholder](path/to/example_graph.png)](https://github.com/Safwanmahmoud/EDAS/blob/main/EDAS%20Vs%20Conv.jpg)
+
+## About the algorithm
+For a deeper understanding of the algorithm and its tunable parameters, please refer to the paper (Link).
 
 ## Usage Example (MATLAB)
 ```matlab
