@@ -2,58 +2,50 @@
 
 **EDAS** is an adaptive smoothing algorithm designed to separate transient and oscillatory components in neural signals. By dynamically adjusting the sampling rate based on Euclidean distance thresholds, EDAS captures sharp transitions while minimizing spectral leakage, outperforming conventional methods.
 
-## Features
-- Adaptive up-sampling for transient component preservation
-- Custom smoothing for oscillatory component extraction
-- Works with both synthetic and real neural data (EEG, LFP, ECoG)
-- Implementations available in **MATLAB** and **Python**
-
 ## Visualization
-### Overview of EDAS Algorithm
-![[Algorithm Flowchart](path/to/flowchart.png)](https://github.com/Safwanmahmoud/EDAS/blob/main/Figure2_20.jpeg)
-
-### Example Results
 #### Before and After EDAS Processing
 ![[Graph Placeholder](path/to/example_graph.png)](https://github.com/Safwanmahmoud/EDAS/blob/main/EDAS%20Vs%20Conv.jpg)
 
-#### EDAS in Action
-![GIF Placeholder](path/to/example_visualization.gif)
-
-## Installation
-### MATLAB
-Clone this repository and add the MATLAB functions to your path:
-```matlab
-addpath('path/to/edas_repo');
-```
-
-### Python
-Install dependencies and clone the repository:
-```bash
-pip install -r requirements.txt
-```
-
 ## Usage Example (MATLAB)
 ```matlab
-% Load sample signal
-t = 0:0.001:1;
-signal = sin(2*pi*10*t) + 0.5*tanh(10*(t-0.5));
+%% Creating synthetic signal
+t = 0:0.1:100;                                                              % Time array
 
-% Apply EDAS algorithm
-params.window_size = 0.15;  % Smoothing window size
-params.resample_factor = 10;  % Downsampling factor
-params.threshold_factor = 1.5;  % Sensitivity parameter
+y1 = 1*(sin(1*t) + sin(2*t) + sin(3*t));                                    % Oscillatory component
 
-[transient, oscillatory] = edas(signal, params);
+steep = 0.9;                                                                % Paramter controlling steepness of transient component
+y2 = 20*tanh(steep*(40-t));                                                 % Transient component
 
-% Plot results
-figure;
-subplot(3,1,1); plot(t, signal); title('Original Signal');
-subplot(3,1,2); plot(t, transient); title('Extracted Transient Component');
-subplot(3,1,3); plot(t, oscillatory); title('Extracted Oscillatory Component');
+noise_ = wgn(1,1001,5,'linear');                                            % Additive white Gaussian noise
+
+y = y1 + y2 + noise_;                                                       % Synthetic signal
+        
+%% Smoothing
+w = 100;
+y_conventional = movmean(y, w);                                             % Conventional moving mean
+
+segmaFactor = 1;
+rf = 10;
+method = "ma";
+numIterations = 1;
+vis = false;
+y_edas = edas(y, w, segmaFactor, rf, method, numIterations, vis);           % EDAS moving mean    
+
+%% Visualizing
+subplot(211)
+plot(y, "Color",[155 155 155]/255, "LineWidth",2);
+hold on
+plot(y_conventional, "Color","red", "LineWidth",2);
+xlim([0 800])
+title("Conventional Moving Average")
+
+subplot(212)
+plot(y, "Color",[155 155 155]/255, "LineWidth",2);
+hold on
+plot(y_edas, "Color","red", "LineWidth",2);
+xlim([0 800])
+title("EDAS Moving Average")
 ```
-
-## Usage Example (Python)
-*Coming soon!*
 
 ## Citation
 If you use this code in your research, please cite our paper:
@@ -70,8 +62,5 @@ BibTeX:
 }
 ```
 
-## License
-[MIT License](LICENSE)
-
 ## Contact
-For questions or contributions, please open an issue or contact us at [your email].
+For questions or contributions, please open an issue or contact us at [safwanmahmoud60@gmail.com].
