@@ -53,16 +53,20 @@ title("EDAS Moving Average")
 ## Citation
 If you use this code in your research, please cite our paper:
 
-> Mohammed et al., "Euclidean Distance-based Adaptive Sampling Algorithm for Disassociating Transient and Oscillatory Components in Signals," *Journal/Conference Name*, Year.
+> Mohammed, S., Gandhi, N. J., Bourelly, C., & Dallal, A. H. (2025). Euclidean Distance based Adaptive Sampling Algorithm for Disassociating Transient and Oscillatory Components of Signals. bioRxiv. https://doi.org/10.1101/2025.02.23.639754
 
 BibTeX:
 ```bibtex
-@article{mohammed2024edas,
-  author = {Safwan Mohammed, Neeraj J. Gandhi, Clara Bourelly, Ahmed Dallal},
-  title = {Euclidean Distance-based Adaptive Sampling Algorithm for Disassociating Transient and Oscillatory Components in Signals},
-  journal = {Journal/Conference Name},
-  year = {2024}
+@article{mohammed2025edas,
+  author    = {Safwan Mohammed and Neeraj J. Gandhi and Clara Bourelly and Ahmed H. Dallal},
+  title     = {Euclidean Distance based Adaptive Sampling Algorithm for Disassociating Transient and Oscillatory Components of Signals},
+  journal   = {bioRxiv},
+  year      = {2025},
+  doi       = {10.1101/2025.02.23.639754},
+  url       = {https://www.biorxiv.org/content/10.1101/2025.02.23.639754v1},
+  note      = {Preprint}
 }
+
 ```
 
 ## Contact
